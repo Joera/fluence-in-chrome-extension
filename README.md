@@ -21,7 +21,7 @@ i have included browser-or-node to test the options they give ... None work, unf
 Finding out what would work is above my paygrade ;) It would be great if you can find a solution!
 Please note that this is chrome extension Manifest v3, which has some major hotly debated changes since v2, but - as i understand - will become the standard. 
 
-When you make changes in the code, the watch function will take care of the compile. You only need to click "update" in extension window and re-oen the dev-tools
+When you make changes in the code, the watch function will take care of the compile. You only need to click "update" in extension window and re-open the dev-tools
 
 
 
