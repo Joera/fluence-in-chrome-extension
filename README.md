@@ -1,12 +1,19 @@
 Hi,
 
 What you need to do is: 
+
 run npm install
+
 then npm run watch (should create dist folder)
+
 go to extensions in brave or chrome. Turn on developer mode in top right corner.
+
 then click load unpacked in top left corner and select the dist folder in the repo.
+
 extension will show up as a card 
+
 then click on Inspect views service worker which will open devtools window for background.js
+
 There you'll see the "Unknown environment" error coming from FluenceAppService.js:85:1  
 
 i have included browser-or-node to test the options they give ... None work, unfortunately. 
