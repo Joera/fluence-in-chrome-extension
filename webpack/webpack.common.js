@@ -3,6 +3,10 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const srcDir = path.join(__dirname, "..", "src");
 
+global.process = require('process');
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
 module.exports = {
     entry: {
       popup: path.join(srcDir, 'popup.tsx'),
@@ -35,6 +39,13 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js"],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(dotenv.parsed),
+            'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+          }),
+        new webpack.ProvidePlugin({
+            Buffer: ['buffer', 'Buffer'],
+          }),
         new CopyPlugin({
             patterns: [{ from: ".", to: "../", context: "public" }],
             options: {},
