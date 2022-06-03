@@ -23,18 +23,22 @@ const selectRelay = () => {
 
 const initNode = async () => {
 
+    console.log(isBrowser);
+    console.log(isNode);
+    console.log(isWebWorker);
     console.log(isJsDom);
+    console.log(isDeno);
 
-    // let relay = selectRelay(); 
+    let relay = selectRelay(); 
 
-    // let local_peer = new FluencePeer();
-    // await local_peer.start({
-    //     KeyPair: await makeKeyPair(rustSK),
-    //     connectTo: relay
-    // }); 
+    let local_peer = new FluencePeer();
+    await local_peer.start({
+        KeyPair: await makeKeyPair(rustSK),
+        connectTo: relay
+    }); 
 
-    // let status = local_peer.getStatus();
-    // console.log(status);
+    let status = local_peer.getStatus();
+    console.log(status);
 }
 
 initNode();
